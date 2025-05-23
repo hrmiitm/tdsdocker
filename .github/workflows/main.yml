@@ -23,4 +23,6 @@ jobs:
 
       - name: Image Upload to Dockerhub
         run: podman push docker.io/hrmhrmhrm/tdsdemo:latest
-    
+      
+      - name: Trigger Azure VM deployment
+        run: curl -X POST http://20.193.251.97:5000/webhook
