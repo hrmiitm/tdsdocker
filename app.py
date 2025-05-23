@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///notes.db'
-app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SECRET_KEY'] = os.getenv('secret_key')
 db = SQLAlchemy()
 
+print(os.getenv('secret_key'))
 
 db.init_app(app) # connection between db and app
 app.app_context().push()
