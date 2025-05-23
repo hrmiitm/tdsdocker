@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Docker Login
-        uses: redhad-actions/podman-login@v1
+        uses: redhat-actions/podman-login@v1
         with:
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
