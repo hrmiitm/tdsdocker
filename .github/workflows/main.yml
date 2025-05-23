@@ -22,5 +22,5 @@ jobs:
         run: pwd && ls -la && podman build -t docker.io/hrmhrmhrm/tdsdemo:latest .
 
       - name: Image Upload to Dockerhub
-        run: podman push docker.io/hrmhrm/tdsdemo:latest
+        run: podman push docker.io/hrmhrmhrm/tdsdemo:latest
     
