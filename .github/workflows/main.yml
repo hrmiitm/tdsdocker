@@ -25,4 +25,4 @@ jobs:
         run: podman push docker.io/hrmhrmhrm/tdsdemo:latest
       
       - name: Trigger Azure VM deployment
-        run: curl -X POST http://20.193.251.97:5000/webhook
+        run: curl -X POST -d "token=${{ VM_WEHOOK_SECRET}}" http://20.193.251.97:5000/webhook
