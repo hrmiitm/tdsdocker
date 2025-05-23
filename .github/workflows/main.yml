@@ -1,0 +1,19 @@
+name: TDS DEMO YML TO CONTANERIZE AND PUSH TO DOCKERHUB
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker Login
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}"" --password-stdin
+
+      - name: Docker Image
+        run: docker build -t hrmhrmhrm/tdsdemo:latest
+
+      - name: Upload
+        run: docker push hrmhrm/tdsdemo:latest
+    
