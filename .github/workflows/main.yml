@@ -9,11 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Docker Login
-        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}"" --password-stdin
+        run: redhad-actions/podman-login@v1
+        with:
+          registry: docker.io
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Docker Image
-        run: docker build -t hrmhrmhrm/tdsdemo:latest
 
-      - name: Upload
-        run: docker push hrmhrm/tdsdemo:latest
+      - name: Podman Image
+        run: podman build -t hrmhrmhrm/tdsdemo:latest .
+
+      - name: Image Upload to Dockerhub
+        run: podman push hrmhrm/tdsdemo:latest
     
