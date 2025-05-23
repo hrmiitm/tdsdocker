@@ -17,7 +17,7 @@ jobs:
 
 
       - name: Podman Image
-        run: podman build -t docker.io/hrmhrmhrm/tdsdemo:latest .
+        run: pwd && ls -la && podman build -t docker.io/hrmhrmhrm/tdsdemo:latest .
 
       - name: Image Upload to Dockerhub
         run: podman push docker.io/hrmhrm/tdsdemo:latest
